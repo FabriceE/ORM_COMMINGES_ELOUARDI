@@ -18,6 +18,14 @@ public abstract class Client  {
 
 	private List<Assurance> assurances;
 
+	public void demandeResiliation(int numAssu){
+		assurances.get(numAssu).setResiliation(true);
+	}
+	
+	public void annuleResiliation(int numAssu){
+		assurances.get(numAssu).setResiliation(false);
+	}
+	
 	public void imprimerEcheances(){
 		List<Echeances> echeances = new ArrayList<>();
 		Date date = Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant());

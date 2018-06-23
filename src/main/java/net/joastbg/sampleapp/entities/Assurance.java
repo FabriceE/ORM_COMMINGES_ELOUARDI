@@ -1,5 +1,7 @@
 package net.joastbg.sampleapp.entities;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
@@ -20,9 +22,21 @@ public abstract class Assurance {
 	private List<Echeances> echeances;
 
 	//private List<Sinistre> sinistres;
-
-	public void demandeRésiliation(){
-		
+	
+	public void activationResiliation(){
+		Date date = Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant());
+		if(date.equals(dateAnniversaire) && resiliation){
+			dateAnniversaire = null;
+			datePrelevement = null;
+		}
+	}
+	
+	public boolean getResiliation(){
+		return resiliation;
+	}
+	
+	public void setResiliation(boolean b){
+		resiliation = b;
 	}
 	
 	public int getNumero() {
