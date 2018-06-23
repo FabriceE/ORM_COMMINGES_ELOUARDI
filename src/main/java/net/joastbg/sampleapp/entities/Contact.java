@@ -2,23 +2,28 @@ package net.joastbg.sampleapp.entities;
 
 public class Contact {
 
-	private String type;
+	private TypeContact type;
 
 	private String valeur;
 
-	public String getType() {
+	protected Contact(TypeContact type, String valeur) {
+		this.type = type;
+		this.valeur = valeur;
+	}
+
+	protected TypeContact getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	protected void setType(TypeContact type) {
 		this.type = type;
 	}
 
-	public String getValeur() {
+	protected String getValeur() {
 		return valeur;
 	}
 
-	public void setValeur(String valeur) {
+	protected void setValeur(String valeur) {
 		this.valeur = valeur;
 	}
 

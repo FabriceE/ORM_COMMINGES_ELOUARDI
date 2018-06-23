@@ -5,6 +5,11 @@ public class PersonneMorale extends Client {
 	private int siren;
 
 	private String nom;
+	
+	public PersonneMorale(int siren, String nom) {
+		setSiren(siren);
+		setNom(nom);
+	}
 
 	public int getSiren() {
 		return siren;

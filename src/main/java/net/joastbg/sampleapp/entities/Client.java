@@ -38,7 +38,38 @@ public abstract class Client  {
 			}
 		}
 	}
+
+	public void setComptePrincipal(String iban) {
+		int i = 0;
+		CompteBancaire compte;
+		do {
+			compte = comptes.get(i++);
+			if (compte.getIban() == iban) {
+				setComptePrincipal(compte);
+			}
+		} while (compte.getIban() != iban && i < comptes.size());
+	}
 	
+	public void addContact(TypeContact type, String valeur) {
+		Contact contact = new Contact(type, valeur);
+		addContact(contact);
+	}
+	public void addContact(Contact contact) {
+		contacts.add(contact);
+	}
+
+	public void deleteContact(Contact contact) {
+		int i = 0;
+		Contact contact2 = contacts.get(i++);
+		
+		while (!contact2.equals(contact) && i < contacts.size()) {
+			contact2 = contacts.get(i++);
+		}
+		if (contact2.equals(contact)) {
+			contacts.remove(i);
+		}
+	}
+
 	public int getIdentifiant() {
 		return identifiant;
 	}
