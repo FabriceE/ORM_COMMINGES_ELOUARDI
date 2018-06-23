@@ -21,6 +21,10 @@ public abstract class Assurance {
 
 	//private List<Sinistre> sinistres;
 
+	public void demandeRésiliation(){
+		
+	}
+	
 	public int getNumero() {
 		return numero;
 	}
