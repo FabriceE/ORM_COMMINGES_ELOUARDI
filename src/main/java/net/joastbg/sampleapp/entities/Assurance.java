@@ -15,6 +15,8 @@ public abstract class Assurance {
 	
 	private Client client;
 
+	private boolean resiliation;
+	
 	private List<Echeances> echeances;
 
 	//private List<Sinistre> sinistres;

@@ -1,5 +1,9 @@
 package net.joastbg.sampleapp.entities;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public abstract class Client  {
@@ -14,6 +18,19 @@ public abstract class Client  {
 
 	private List<Assurance> assurances;
 
+	public void imprimerEcheances(){
+		List<Echeances> echeances = new ArrayList<>();
+		Date date = Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant());
+		for(Assurance assu : assurances){
+			for(Echeances eche : assu.getEcheances()){
+				if(eche.getDateEmission().after(date)){
+					Date datecalc= new Date(eche.getDateEmission().getTime()-date.getTime());
+					
+				}
+			}
+		}
+	}
+	
 	public int getIdentifiant() {
 		return identifiant;
 	}
