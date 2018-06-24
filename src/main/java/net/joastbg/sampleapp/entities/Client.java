@@ -1,12 +1,16 @@
 package net.joastbg.sampleapp.entities;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public abstract class Client  {
+public abstract class Client {
 
 	private int identifiant;
 
@@ -18,25 +22,51 @@ public abstract class Client  {
 
 	private List<Assurance> assurances;
 
-	public void demandeResiliation(int numAssu){
+	public void demandeResiliation(int numAssu) {
 		assurances.get(numAssu).setResiliation(true);
 	}
-	
-	public void annuleResiliation(int numAssu){
+
+	public void annuleResiliation(int numAssu) {
 		assurances.get(numAssu).setResiliation(false);
 	}
-	
-	public void imprimerEcheances(){
+
+	public void imprimerEcheances() {
 		List<Echeances> echeances = new ArrayList<>();
-		Date date = Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant());
-		for(Assurance assu : assurances){
-			for(Echeances eche : assu.getEcheances()){
-				if(eche.getDateEmission().after(date)){
-					Date datecalc= new Date(eche.getDateEmission().getTime()-date.getTime());
-					
+		int diffDate = 0;
+		Date dateActuelle = Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant());
+		Calendar echeancesCal = null, todayCal = DateToCalendar(dateActuelle);
+		for (Assurance assu : assurances) {
+			for (Echeances eche : assu.getEcheances()) {
+				echeancesCal = DateToCalendar(eche.getDateEmission());
+				diffDate = CompareCalendars(todayCal, echeancesCal);
+				if (diffDate >= 0 && diffDate <= 6) {
+					echeances.add(eche);
 				}
 			}
 		}
+
+	}
+
+	public int CompareCalendars(Calendar cal1, Calendar cal2) {
+		if (cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR)) {
+			return Math.abs(cal1.get(Calendar.MONTH) - cal2.get(Calendar.MONTH));
+		} else {
+			int diffYear = cal2.get(Calendar.YEAR) - cal1.get(Calendar.YEAR);
+			return diffYear * 12 + cal2.get(Calendar.MONTH) - cal1.get(Calendar.MONTH);
+		}
+	}
+
+	public Calendar DateToCalendar(Date date) {
+		Calendar cal = null;
+		try {
+			DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+			date = (Date) formatter.parse(date.toString());
+			cal = Calendar.getInstance();
+			cal.setTime(date);
+		} catch (ParseException e) {
+			System.out.println("Exception :" + e);
+		}
+		return cal;
 	}
 
 	public void setComptePrincipal(String iban) {
@@ -49,11 +79,12 @@ public abstract class Client  {
 			}
 		} while (compte.getIban() != iban && i < comptes.size());
 	}
-	
+
 	public void addContact(TypeContact type, String valeur) {
 		Contact contact = new Contact(type, valeur);
 		addContact(contact);
 	}
+
 	public void addContact(Contact contact) {
 		contacts.add(contact);
 	}
@@ -61,7 +92,7 @@ public abstract class Client  {
 	public void deleteContact(Contact contact) {
 		int i = 0;
 		Contact contact2 = contacts.get(i++);
-		
+
 		while (!contact2.equals(contact) && i < contacts.size()) {
 			contact2 = contacts.get(i++);
 		}
