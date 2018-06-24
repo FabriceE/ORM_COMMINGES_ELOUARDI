@@ -21,7 +21,7 @@ public abstract class Assurance {
 	
 	private List<Echeances> echeances;
 
-	//private List<Sinistre> sinistres;
+	private List<Sinistre> sinistres;
 	
 	public void activationResiliation(){
 		Date date = Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -85,5 +85,13 @@ public abstract class Assurance {
 
 	public void setEcheances(List<Echeances> echeances) {
 		this.echeances = echeances;
+	}
+
+	public List<Sinistre> getSinistres() {
+		return sinistres;
+	}
+
+	protected void addSinistre(Sinistre sinistre) {
+		this.sinistres.add(sinistre);
 	}
 }
