@@ -34,8 +34,8 @@ create TABLE ASSURANCE(
     dateSouscription DATE NOT NULL,
     dateAnniversaire DATE NOT NULL,
     datePrelevement DATE NOT NULL,
-    immatriculation VARCHAR(7),
-    bonusMalus VARCHAR(2),
+    immatriculation VARCHAR(9),
+    bonusMalus INTEGER,
     adresseAssuree VARCHAR(100),
     valeurCouverte INTEGER,
     PRIMARY KEY (idAssurance)

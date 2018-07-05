@@ -2,14 +2,18 @@ package net.joastbg.sampleapp.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "COMPTE_BANCAIRE")
 public class CompteBancaire {
+
+	@Id
 	@Column(name = "iban")
 	private String Iban;
 
+	@Column(name = "BIC")
 	private String BIC;
 
 	private Client Proprietaire;
