@@ -46,7 +46,9 @@ public abstract class Client {
 	@JoinColumn(name = "idClient")
 	private List<Contact> contacts;
 
-	/*private List<Assurance> assurances;
+	@OneToMany
+	@JoinColumn(name = "idClient")
+	private List<Assurance> assurances;
 
 	public void demandeResiliation(int numAssu) {
 		assurances.get(numAssu).setResiliation(true);
