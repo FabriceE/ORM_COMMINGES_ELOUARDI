@@ -2,12 +2,21 @@ package net.joastbg.sampleapp.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="CLIENT")
 public class PersonnePhysique extends Client {
 
+	@Column(name = "nom")
 	private String nom;
 
+	@Column(name = "prenom")
 	private String prenom;
 
+	@Column(name = "dateNaissance")
 	private Date dateNaissance;
 
 	public PersonnePhysique() {}

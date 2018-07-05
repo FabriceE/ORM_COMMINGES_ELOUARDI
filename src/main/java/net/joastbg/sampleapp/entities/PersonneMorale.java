@@ -1,9 +1,17 @@
 package net.joastbg.sampleapp.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="CLIENT")
 public class PersonneMorale extends Client {
 
+	@Column(name = "siren")
 	private int siren;
 
+	@Column(name = "nom")
 	private String nom;
 	
 	public PersonneMorale(int siren, String nom) {
