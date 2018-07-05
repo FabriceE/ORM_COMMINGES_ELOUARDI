@@ -38,6 +38,7 @@ create TABLE ASSURANCE(
     bonusMalus INTEGER,
     adresseAssuree VARCHAR(100),
     valeurCouverte INTEGER,
+    resilitation BOOLEAN,
     PRIMARY KEY (idAssurance)
 );
 

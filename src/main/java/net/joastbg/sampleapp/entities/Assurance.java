@@ -5,22 +5,47 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "ASSURANCE")
 public abstract class Assurance {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "idAssurance")
 	private int numero;
 
+	@Column(name = "dateSouscription")
 	private Date dateSouscription;
 
+	@Column(name = "dateAnniversaire")
 	private Date dateAnniversaire;
 
+	@Column(name = "datePrelevement")
 	private Date datePrelevement;
 	
+	@ManyToOne
+	@JoinColumn(name = "idClient")
 	private Client client;
 
+	@Column(name = "resilitation")
 	private boolean resiliation;
 	
+	@OneToMany
+	@JoinColumn(name = "idEcheance")
 	private List<Echeances> echeances;
 
+	@OneToMany
+	@JoinColumn(name = "idSinistre")
 	private List<Sinistre> sinistres;
 	
 	public void activationResiliation(){
