@@ -5,6 +5,7 @@ import junit.framework.Assert;
 import net.joastbg.sampleapp.dao.ClientDao;
 import net.joastbg.sampleapp.dao.CompteDao;
 import net.joastbg.sampleapp.entities.CompteBancaire;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
