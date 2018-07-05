@@ -22,6 +22,10 @@ public class AssuranceAuto extends Assurance {
 	@JoinColumn(name = "idClient")
 	private List<PersonnePhysique> conducteurs;
 
+	public AssuranceAuto() {
+		super();
+	}
+
 	public int getImmatriculation() {
 		return immatriculation;
 	}
