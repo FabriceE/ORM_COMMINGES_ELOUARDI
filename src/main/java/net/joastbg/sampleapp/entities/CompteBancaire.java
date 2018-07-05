@@ -3,6 +3,8 @@ package net.joastbg.sampleapp.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +18,8 @@ public class CompteBancaire {
 	@Column(name = "BIC")
 	private String BIC;
 
+	@ManyToOne
+	@JoinColumn(name = "idClient")
 	private Client Proprietaire;
 
 	public String getIban() {
@@ -40,11 +44,6 @@ public class CompteBancaire {
 
 	public void setProprietaire(Client proprietaire) {
 		Proprietaire = proprietaire;
-	}
-
-	public void setProprietaire(String string) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

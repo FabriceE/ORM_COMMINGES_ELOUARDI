@@ -15,6 +15,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,8 +30,16 @@ public abstract class Client {
 	@Column(name = "idClient")
 	private int identifiant;
 
-	private List<CompteBancaire> comptes;
+	@OneToMany
+	@JoinTable(
+            name = "COMPTE_CLIENT",
+            joinColumns = {@JoinColumn(name = "idClient")},
+            inverseJoinColumns = {@JoinColumn(name = "iban")}
+    )
+    private List<CompteBancaire> comptes;
 
+	@OneToOne
+	@JoinColumn(name = "iban")
 	private CompteBancaire comptePrincipal;
 
 	private List<Contact> contacts;

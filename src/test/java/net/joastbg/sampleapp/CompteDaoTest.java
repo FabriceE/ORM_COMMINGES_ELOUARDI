@@ -31,7 +31,8 @@ public class CompteDaoTest {
     public void setUp() {
         compte = new CompteBancaire();
         compte.setIban("FR7612548029980000000150086");
-        compte.setProprietaire("Cathy Catou");
+        compte.setBIC("FR10451124");
+        
     }
 
     @Test
