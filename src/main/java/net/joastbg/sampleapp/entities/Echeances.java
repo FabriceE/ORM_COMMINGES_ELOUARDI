@@ -2,16 +2,38 @@ package net.joastbg.sampleapp.entities;
 
 import java.util.Date;
 
-public class Echeances {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "ECHEANCES")
+public class Echeances {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "idEcheance")
+	private int idEcheance;
+
+	@Column(name = "prix")
 	private double prix;
 
+	@Column(name = "dateEmission")
 	private Date dateEmission;
 
+	@Column(name = "datePaiement")
 	private Date datePaiement;
 
+	@Column(name = "dateEmissionFacture")
 	private Date dateEmissionFacture;
 
+	@ManyToOne
+	@JoinColumn(name = "idAssurance")
 	private Assurance assurance;
 
 	public double getPrix() {

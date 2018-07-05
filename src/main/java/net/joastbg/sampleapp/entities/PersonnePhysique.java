@@ -9,7 +9,9 @@ public class PersonnePhysique extends Client {
 	private String prenom;
 
 	private Date dateNaissance;
-	
+
+	public PersonnePhysique() {}
+
 	public PersonnePhysique(String prenom, String nom, Date dateNaissance) {
 		setPrenom(prenom);
 		setNom(nom);

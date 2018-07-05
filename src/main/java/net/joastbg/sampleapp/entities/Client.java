@@ -42,9 +42,11 @@ public abstract class Client {
 	@JoinColumn(name = "iban")
 	private CompteBancaire comptePrincipal;
 
+	@OneToMany
+	@JoinColumn(name = "idClient")
 	private List<Contact> contacts;
 
-	private List<Assurance> assurances;
+	/*private List<Assurance> assurances;
 
 	public void demandeResiliation(int numAssu) {
 		assurances.get(numAssu).setResiliation(true);

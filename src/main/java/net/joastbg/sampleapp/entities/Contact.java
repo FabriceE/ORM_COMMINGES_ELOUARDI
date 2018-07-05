@@ -1,9 +1,22 @@
 package net.joastbg.sampleapp.entities;
 
-public class Contact {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="CONTACT")
+public class Contact {
+	
+	@Id
+	@Column(name = "idContact")
+	private int idContact;
+
+	@Column(name = "typeContact")
 	private TypeContact type;
 
+	@Column(name = "valeur")
 	private String valeur;
 
 	protected Contact(TypeContact type, String valeur) {
