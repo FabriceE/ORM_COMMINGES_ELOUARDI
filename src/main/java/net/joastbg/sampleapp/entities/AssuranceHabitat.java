@@ -1,9 +1,17 @@
 package net.joastbg.sampleapp.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "ASSURANCE")
 public class AssuranceHabitat extends Assurance {
 
+	@Column(name = "adresseAssuree")
 	private String adresse;
 
+	@Column(name = "valeurCouverte")
 	private double valeur;
 
 	public String getAdresse() {
