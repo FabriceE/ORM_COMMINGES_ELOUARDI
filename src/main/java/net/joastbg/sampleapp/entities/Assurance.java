@@ -55,7 +55,7 @@ public abstract class Assurance {
 			datePrelevement = null;
 		}
 	}
-	
+
 	public boolean getResiliation(){
 		return resiliation;
 	}
