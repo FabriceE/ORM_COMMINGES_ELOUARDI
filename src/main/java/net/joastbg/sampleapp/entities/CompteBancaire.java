@@ -1,7 +1,13 @@
 package net.joastbg.sampleapp.entities;
 
-public class CompteBancaire {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "COMPTE_BANCAIRE")
+public class CompteBancaire {
+	@Column(name = "iban")
 	private String Iban;
 
 	private String BIC;
