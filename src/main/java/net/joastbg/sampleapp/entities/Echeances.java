@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "ECHEANCES")
 public class Echeances {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "idEcheance")

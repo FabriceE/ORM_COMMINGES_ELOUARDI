@@ -1,9 +1,4 @@
-/**
- * 
- */
 package net.joastbg.sampleapp;
-
-import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,34 +10,32 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import net.joastbg.sampleapp.dao.AssuranceDao;
-import net.joastbg.sampleapp.entities.Assurance;
 import net.joastbg.sampleapp.entities.AssuranceAuto;
 
-@TransactionConfiguration(transactionManager="transactionManager", defaultRollback=false)
+@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = false)
 @Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/spring/config/BeanLocations.xml")
 public class AssuranceAutoTest {
 
-	
 	@Autowired
-    AssuranceDao assuranceDao;
+	AssuranceDao assuranceDao;
 	AssuranceAuto assuranceAuto;
 
-    @Before
-    public void setUp() {
-    	assuranceAuto = new AssuranceAuto();
-        
-    }
+	@Before
+	public void setUp() {
+		assuranceAuto = new AssuranceAuto();
 
-    @Test
-    public void testPersist(){
-    }
+	}
 
-    @Test
-    public void testFind(){
-    }
-	
+	@Test
+	public void testPersist() {
+	}
+
+	@Test
+	public void testFind() {
+	}
+
 	@Test
 	public void testActivationResiliation() {
 	}

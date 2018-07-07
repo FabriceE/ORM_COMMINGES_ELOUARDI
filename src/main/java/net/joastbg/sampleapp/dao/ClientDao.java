@@ -22,40 +22,40 @@ import java.util.List;
 @Transactional
 public class ClientDao {
 
-    @Autowired
-    SessionFactory sessionFactory;
+	@Autowired
+	SessionFactory sessionFactory;
 
-    public Long persist(Client client){
-        Session session = sessionFactory.getCurrentSession();
-        Long returnID = (Long) session.save(client);
-        return returnID;
-    }
+	public Long persist(Client client) {
+		Session session = sessionFactory.getCurrentSession();
+		Long returnID = (Long) session.save(client);
+		return returnID;
+	}
 
-    public List<Client> findAll(){
-        Session session = sessionFactory.getCurrentSession();
-        return  session.createQuery("from Client").list();
-    }
-    
-    public List<Client> getAnniversary(){
-    	Date dateActuelle = Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant());
+	public List<Client> findAll() {
+		Session session = sessionFactory.getCurrentSession();
+		return session.createQuery("from Client").list();
+	}
+
+	public List<Client> getAnniversary() {
+		Date dateActuelle = Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant());
 		Calendar annivCal = null, todayCal = DateToCalendar(dateActuelle);
-    	int diffDate = 0;
+		int diffDate = 0;
 		List<Client> anniversaires = new ArrayList<>();
-    	List<Client> clients = findAll();
-    	for (Client client : clients){
-    		for(Assurance assu : client.getAssurances()){
-    			annivCal = DateToCalendar(assu.getDateAnniversaire());
-    			diffDate = CompareCalendars(todayCal, annivCal);
-    			if (diffDate >= 0 && diffDate <= 3) {
-    				anniversaires.add(client);
+		List<Client> clients = findAll();
+		for (Client client : clients) {
+			for (Assurance assu : client.getAssurances()) {
+				annivCal = DateToCalendar(assu.getDateAnniversaire());
+				diffDate = CompareCalendars(todayCal, annivCal);
+				if (diffDate >= 0 && diffDate <= 3) {
+					anniversaires.add(client);
 				}
-    			break;
-    		}
-    	}
-    	return anniversaires;
-    }
-    
-    public int CompareCalendars(Calendar cal1, Calendar cal2) {
+				break;
+			}
+		}
+		return anniversaires;
+	}
+
+	public int CompareCalendars(Calendar cal1, Calendar cal2) {
 		if (cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR)) {
 			return Math.abs(cal1.get(Calendar.MONTH) - cal2.get(Calendar.MONTH));
 		} else {

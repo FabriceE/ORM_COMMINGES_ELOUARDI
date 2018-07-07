@@ -72,7 +72,6 @@ public abstract class Client {
 				}
 			}
 		}
-
 	}
 
 	public int CompareCalendars(Calendar cal1, Calendar cal2) {

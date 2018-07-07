@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="CLIENT")
+@Table(name = "CLIENT")
 public class PersonnePhysique extends Client {
 
 	@Column(name = "nom")
@@ -19,7 +19,8 @@ public class PersonnePhysique extends Client {
 	@Column(name = "dateNaissance")
 	private Date dateNaissance;
 
-	public PersonnePhysique() {}
+	public PersonnePhysique() {
+	}
 
 	public PersonnePhysique(String prenom, String nom, Date dateNaissance) {
 		setPrenom(prenom);

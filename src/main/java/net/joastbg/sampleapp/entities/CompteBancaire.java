@@ -27,7 +27,7 @@ public class CompteBancaire {
 	}
 
 	public void setIban(String iban) {
-		Iban = iban;
+		this.Iban = iban;
 	}
 
 	public String getBIC() {

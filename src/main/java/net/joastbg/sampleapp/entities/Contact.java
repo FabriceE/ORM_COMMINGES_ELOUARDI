@@ -6,9 +6,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="CONTACT")
+@Table(name = "CONTACT")
 public class Contact {
-	
+
 	@Id
 	@Column(name = "idContact")
 	private int idContact;

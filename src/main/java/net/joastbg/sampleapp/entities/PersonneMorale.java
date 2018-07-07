@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="CLIENT")
+@Table(name = "CLIENT")
 public class PersonneMorale extends Client {
 
 	@Column(name = "siren")
@@ -13,7 +13,7 @@ public class PersonneMorale extends Client {
 
 	@Column(name = "nom")
 	private String nom;
-	
+
 	public PersonneMorale(int siren, String nom) {
 		setSiren(siren);
 		setNom(nom);

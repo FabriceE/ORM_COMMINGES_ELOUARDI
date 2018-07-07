@@ -32,14 +32,14 @@ public abstract class Assurance {
 
 	@Column(name = "datePrelevement")
 	private Date datePrelevement;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "idClient")
 	private Client client;
 
 	@Column(name = "resilitation")
 	private boolean resiliation;
-	
+
 	@OneToMany
 	@JoinColumn(name = "idEcheance")
 	private List<Echeances> echeances;
@@ -47,23 +47,23 @@ public abstract class Assurance {
 	@OneToMany
 	@JoinColumn(name = "idSinistre")
 	private List<Sinistre> sinistres;
-	
-	public void activationResiliation(){
+
+	public void activationResiliation() {
 		Date date = Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant());
-		if(date.equals(dateAnniversaire) && resiliation){
+		if (date.equals(dateAnniversaire) && resiliation) {
 			dateAnniversaire = null;
 			datePrelevement = null;
 		}
 	}
 
-	public boolean getResiliation(){
+	public boolean getResiliation() {
 		return resiliation;
 	}
-	
-	public void setResiliation(boolean b){
+
+	public void setResiliation(boolean b) {
 		resiliation = b;
 	}
-	
+
 	public int getNumero() {
 		return numero;
 	}

@@ -19,7 +19,7 @@ public class Sinistre {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "idSinitre")
 	private int idSinitre;
-	
+
 	@Column(name = "dateSinistre")
 	private Date date;
 
