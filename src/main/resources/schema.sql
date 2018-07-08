@@ -15,6 +15,7 @@ CREATE TABLE CLIENT(
 	prenom varchar(25),
 	dateNaissance date,
 	iban varchar(32),
+	ctype varchar(20),
 	primary key (idClient),
 	FOREIGN KEY (iban) REFERENCES COMPTE_BANCAIRE(iban)
 );

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import net.joastbg.sampleapp.entities.Assurance;
-import net.joastbg.sampleapp.entities.CompteBancaire;
 
 @Service
 @Transactional

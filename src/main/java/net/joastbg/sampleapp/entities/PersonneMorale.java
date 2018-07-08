@@ -1,11 +1,13 @@
 package net.joastbg.sampleapp.entities;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "CLIENT")
+@DiscriminatorValue(value = "true")
 public class PersonneMorale extends Client {
 
 	@Column(name = "siren")
@@ -13,6 +15,9 @@ public class PersonneMorale extends Client {
 
 	@Column(name = "nom")
 	private String nom;
+
+	public PersonneMorale() {
+	}
 
 	public PersonneMorale(int siren, String nom) {
 		setSiren(siren);
