@@ -40,6 +40,7 @@ create TABLE ASSURANCE(
     adresseAssuree VARCHAR(100),
     valeurCouverte INTEGER,
     resilitation BOOLEAN,
+    atype varchar(20),
     PRIMARY KEY (idAssurance)
 );
 

@@ -1,11 +1,13 @@
 package net.joastbg.sampleapp.entities;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "ASSURANCE")
+@DiscriminatorValue(value = "true")
 public class AssuranceHabitat extends Assurance {
 
 	@Column(name = "adresseAssuree")

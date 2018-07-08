@@ -1,5 +1,7 @@
 package net.joastbg.sampleapp.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,11 @@ public class AssuranceDao {
 	public Assurance find(String idAssurance) {
 		Session session = sessionFactory.getCurrentSession();
 		return (Assurance) session.load(Assurance.class, idAssurance);
+	}
+
+	public List<Assurance> findAll() {
+		Session session = sessionFactory.getCurrentSession();
+		return session.createQuery("select numero, dateSouscription, dateAnniversaire, datePrelevement, immatriculation, bonusMalus from Assurance").list();
 	}
 
 	public void delete(Assurance assurance) {

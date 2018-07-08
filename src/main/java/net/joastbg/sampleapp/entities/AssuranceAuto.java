@@ -3,6 +3,7 @@ package net.joastbg.sampleapp.entities;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -10,10 +11,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "ASSURANCE")
+@DiscriminatorValue(value = "true")
 public class AssuranceAuto extends Assurance {
 
 	@Column(name = "immatriculation")
-	private int immatriculation;
+	private String immatriculation;
 
 	@Column(name = "bonusMalus")
 	private int bonusMalus;
@@ -26,11 +28,11 @@ public class AssuranceAuto extends Assurance {
 		super();
 	}
 
-	public int getImmatriculation() {
+	public String getImmatriculation() {
 		return immatriculation;
 	}
 
-	public void setImmatriculation(int immatriculation) {
+	public void setImmatriculation(String immatriculation) {
 		this.immatriculation = immatriculation;
 	}
 
