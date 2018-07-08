@@ -50,7 +50,9 @@ public class ClientDaoTest {
 
 	@Test
 	public void testPersist() {
-		Assert.assertTrue(true);
+		int id = clientDao.persist(client);
+		Assert.assertTrue(id != 0);
+		clientDao.delete(client);
 	}
 
 	@Test

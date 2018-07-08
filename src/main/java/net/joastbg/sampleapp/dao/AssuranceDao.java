@@ -17,13 +17,13 @@ public class AssuranceDao {
 	@Autowired
 	SessionFactory sessionFactory;
 
-	public String persist(Assurance assurance) {
+	public int persist(Assurance assurance) {
 		Session session = sessionFactory.getCurrentSession();
-		String returnID = (String) session.save(assurance);
+		int returnID = (int) session.save(assurance);
 		return returnID;
 	}
 
-	public Assurance find(String idAssurance) {
+	public Assurance find(int idAssurance) {
 		Session session = sessionFactory.getCurrentSession();
 		return (Assurance) session.load(Assurance.class, idAssurance);
 	}

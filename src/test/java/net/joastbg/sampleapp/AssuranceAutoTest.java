@@ -1,5 +1,6 @@
 package net.joastbg.sampleapp;
 
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Before;
@@ -15,7 +16,6 @@ import junit.framework.Assert;
 import net.joastbg.sampleapp.dao.AssuranceDao;
 import net.joastbg.sampleapp.entities.Assurance;
 import net.joastbg.sampleapp.entities.AssuranceAuto;
-import net.joastbg.sampleapp.entities.Client;
 
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = false)
 @Transactional
@@ -30,15 +30,27 @@ public class AssuranceAutoTest {
 	@Before
 	public void setUp() {
 		assuranceAuto = new AssuranceAuto();
-		
+		assuranceAuto.setDateAnniversaire(new Date());
+		assuranceAuto.setDateSouscription(new Date());
+		assuranceAuto.setDatePrelevement(new Date());
+		assuranceAuto.setImmatriculation("ZL-015-AJ");
+		assuranceAuto.setBonusMalus(2);
 	}
 
 	@Test
 	public void testPersist() {
+		int id = assuranceDao.persist(assuranceAuto);
+		Assert.assertTrue(id != 0);
+		assuranceDao.delete(assuranceAuto);
 	}
 
 	@Test
 	public void testFind() {
+		int id = assuranceDao.persist(assuranceAuto);
+		AssuranceAuto assuranceFound = (AssuranceAuto) assuranceDao.find(id);
+		Assert.assertNotNull(assuranceFound);
+		Assert.assertEquals(assuranceAuto, assuranceFound);
+		assuranceDao.delete(assuranceAuto);
 	}
 
 	@Test
@@ -49,6 +61,8 @@ public class AssuranceAutoTest {
 
 	@Test
 	public void testActivationResiliation() {
+		//TODO
+		Assert.assertTrue(false);
 	}
 
 }
