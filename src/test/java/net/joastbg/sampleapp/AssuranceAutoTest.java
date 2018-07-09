@@ -61,8 +61,9 @@ public class AssuranceAutoTest {
 
 	@Test
 	public void testActivationResiliation() {
-		//TODO
-		Assert.assertTrue(false);
+		assuranceAuto.setResiliation(true);
+		assuranceAuto.activationResiliation();
+		Assert.assertTrue(assuranceAuto.getResiliation());
 	}
 
 }

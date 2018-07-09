@@ -13,3 +13,7 @@ INSERT INTO CLIENT_ASSURANCE(idClient, idAssurance)
               (SELECT idAssurance from ASSURANCE where immatriculation='15-ZBS-45'));
 
 INSERT INTO COMPTE_CLIENT (idClient, iban) VALUES ((SELECT idClient from client where nom='cathou'),'FR7630001007941234567890185');
+
+INSERT INTO ECHEANCES (prix, dateEmission, datePaiement, dateEmissionFacture) VALUES (125,'2018-06-06', '2018-07-09','2018-07-11');
+
+INSERT INTO SINISTRE (dateSinistre, titre, description) VALUES ('2018-08-03','Titre Sinistre','Description Sinistre');
