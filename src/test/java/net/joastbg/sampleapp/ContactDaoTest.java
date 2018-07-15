@@ -1,6 +1,6 @@
 package net.joastbg.sampleapp;
 
-import java.util.Date;
+import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -11,43 +11,41 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import junit.framework.Assert;
-import net.joastbg.sampleapp.dao.EcheanceDao;
-import net.joastbg.sampleapp.entities.Echeances;
+import net.joastbg.sampleapp.dao.ContactDao;
+import net.joastbg.sampleapp.entities.Contact;
 
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = false)
 @Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/spring/config/BeanLocations.xml")
-public class EcheanceDaoTest {
+public class ContactDaoTest {
 
 	@Autowired
-	EcheanceDao echeanceDao;
-	Echeances echeances;
+	ContactDao contactDao;
+	Contact contact;
+
 	
 	@Before
 	public void setUp() {
-		echeances = new Echeances();
-		echeances.setDateEmission(new Date());
-		echeances.setDateEmissionFacture(new Date());
-		echeances.setDatePaiement(new Date());
-		echeances.setPrix(125);
+		contact = new Contact();
+		//contact.setType();
+		//contact
+		//contact
 	}
 
 	@Test
 	public void testPersist() {
-		int id = echeanceDao.persist(echeances);
-		Assert.assertTrue(id != 0);
-		echeanceDao.delete(echeances);
+		//fail("Not yet implemented");
 	}
- 
+
 	@Test
 	public void testFind() {
-		int id = echeanceDao.persist(echeances);
-		Echeances ehceanceTest = echeanceDao.find(id);
-		Assert.assertNotNull(ehceanceTest);
-		Assert.assertEquals(echeances, ehceanceTest);
-		echeanceDao.delete(echeances);
+		//fail("Not yet implemented");
+	}
+
+	@Test
+	public void testFindAll() {
+		//fail("Not yet implemented");
 	}
 
 }

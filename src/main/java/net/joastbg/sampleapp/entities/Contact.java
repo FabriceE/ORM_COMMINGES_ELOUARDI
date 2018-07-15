@@ -19,6 +19,9 @@ public class Contact {
 	@Column(name = "valeur")
 	private String valeur;
 
+	public Contact() {
+	}
+
 	protected Contact(TypeContact type, String valeur) {
 		this.type = type;
 		this.valeur = valeur;

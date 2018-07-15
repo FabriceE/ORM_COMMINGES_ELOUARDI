@@ -33,6 +33,9 @@ public class Sinistre {
 	@JoinColumn(name = "idAssurance")
 	private Assurance assurance;
 
+	public Sinistre() {
+	}
+
 	public Sinistre(Date date, String titre, String description, Assurance assurance) {
 		this.date = date;
 		this.titre = titre;
@@ -70,6 +73,14 @@ public class Sinistre {
 
 	protected void setAssurance(Assurance assurance) {
 		this.assurance = assurance;
+	}
+
+	protected int getIdSinitre() {
+		return idSinitre;
+	}
+
+	protected void setIdSinitre(int idSinitre) {
+		this.idSinitre = idSinitre;
 	}
 
 }

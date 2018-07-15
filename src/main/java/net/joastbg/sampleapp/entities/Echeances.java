@@ -36,6 +36,9 @@ public class Echeances {
 	@JoinColumn(name = "idAssurance")
 	private Assurance assurance;
 
+	public Echeances() {
+	}
+
 	public double getPrix() {
 		return prix;
 	}
@@ -74,6 +77,14 @@ public class Echeances {
 
 	public void setAssurance(Assurance assurance) {
 		this.assurance = assurance;
+	}
+
+	protected int getIdEcheance() {
+		return idEcheance;
+	}
+
+	protected void setIdEcheance(int idEcheance) {
+		this.idEcheance = idEcheance;
 	}
 
 }
